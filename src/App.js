@@ -1,32 +1,47 @@
-import { Component, useState } from "react";
-
-import logo from "./logo.svg";
+import {Component} from "react";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
 
-    this.state = {
-      name: 'Vitor'
-    }
-  }
+   constructor() {
+      super();
+      this.state = {
+         monsters: [
+            {
+               id: 1,
+               name: 'Linda'
+            },
+            {
+               id: 2,
+               name: 'Frankl'
+            },
+            {
+               id: 3,
+               name: 'Jacky'
+            },
+            {
+               id: 4,
+               name: 'Andrei'
+            }
+         ]
+      };
+   }
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>São Paulo Tech School.</p>
-          <p>Hi {this.state.name}</p>
-          <button onClick={() => {
-            this.state.name = 'Gabriel'
-            console.log(this.state)
-          }}>Change name</button>
-        </header>
-      </div>
-    );
-  }
+   render() {
+      return (
+         <div className="App">
+            {
+               this.state.monsters.map((monster) => {
+                  return (
+                     <dov key={monster.id}>
+                        <h1>{monster.name}</h1>
+                     </dov>
+                  )
+               })
+            }
+         </div>
+      );
+   }
 }
 
 export default App;
