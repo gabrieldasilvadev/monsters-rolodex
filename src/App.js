@@ -20,12 +20,15 @@ class App extends Component {
 
    render() {
       return (<div className="App">
-            {this.state.monsters.map((monster) => {
-               return (<div key={monster.id}>
-                     <h1>{monster.name}</h1>
-                  </div>)
-            })}
-         </div>);
+         <input className='search-box' type='search' placeholder="Procurar um monstro..." onChange={(event) => {
+            console.log(event.target.value)
+         }}/>
+         {this.state.monsters.map((monster) => {
+            return (<div key={monster.id}>
+               <h1>{monster.name}</h1>
+            </div>)
+         })}
+      </div>);
    }
 }
 
